@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angelic Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+--bg: #090614;
+--bg2: #0f0a21;
+--card: #16102e;
+--card2: #1e163d;
+--card3: #251b4c;
+--pink: #f472b6;
+--pink2: #ec4899;
+--pink3: #db2777;
+--pink-dim: rgba(244,114,182,0.06);
+--pink-glow: rgba(244,114,182,0.35);
+--purple: #a855f7;
+--purple2: #9333ea;
+--txt: #f1ebff;
+--txt2: #c4b5fd;
+--txt3: #8b5cf6;
+--dim: #2d2445;
+--border: rgba(168,85,247,0.25);
+--border2: rgba(244,114,182,0.12);
+--radius: 18px;
+--radius-sm: 12px;
+}
+html{scroll-behavior:smooth;background:#090614;}
+body{
+background-color: #090614 !important;
+background: var(--bg);
+color: var(--txt);
+font-family: 'Mitr', sans-serif;
+min-height: 100vh;
+overflow-x: hidden;
+font-size: 15.5px;
+line-height: 1.75;
+}
+/* ── WRAP ── */
+.wrap{
+position: relative; z-index: 10;
+background: #090614;
+max-width: 480px;
+margin: 0 auto;
+padding: 0 0 80px;
+}
+/* ── HERO HEADER ── */
+.hero{
+position: relative;
+padding: 52px 24px 40px;
+text-align: center;
+overflow: hidden;
+}
+.hero-badge{
+display: inline-flex; align-items: center; gap: 6px;
+background: var(--pink-dim);
+border: 1px solid var(--border);
+border-radius: 30px;
+padding: 5px 14px;
+font-size: 0.75rem;
+color: var(--pink);
+letter-spacing: 1.5px;
+text-transform: uppercase;
+margin-bottom: 18px;
+font-family: 'Mitr', sans-serif;
+}
+.hero-title{
+font-family: 'Mitr', sans-serif;
+font-size: 2.6rem;
+font-weight: 500;
+letter-spacing: 2px;
+line-height: 1.1;
+margin-bottom: 10px;
+}
+.hero-title .w1{ color: #c4b5fd; }
+.hero-title .w2{
+color: var(--pink);
+text-shadow:
+0 0 20px rgba(244,114,182,0.7),
+0 0 60px rgba(244,114,182,0.3),
+0 0 100px rgba(244,114,182,0.15);
+}
+.hero-title .w3{ color: #c4b5fd; }
+.hero-sub{
+color: var(--txt2);
+font-size: 0.88rem;
+letter-spacing: 0.5px;
+margin-bottom: 28px;
+}
+.hero-fb-btn{
+display: inline-flex; align-items: center; gap: 8px;
+padding: 12px 24px;
+background: linear-gradient(135deg, var(--pink2), var(--purple));
+border-radius: 30px;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: 500;
+letter-spacing: 0.5px;
+box-shadow:
+0 4px 20px rgba(244,114,182,0.4),
+0 0 40px rgba(244,114,182,0.15);
+transition: all .3s;
+}
+.hero-fb-btn:hover{
+transform: translateY(-2px);
+box-shadow: 0 6px 28px rgba(244,114,182,0.55), 0 0 60px rgba(244,114,182,0.2);
+}
+/* ── GLOW DIVIDER ── */
+.g-divider{
+height: 1px;
+margin: 0 24px;
+background: linear-gradient(90deg, transparent, var(--pink2), var(--purple), var(--pink2), transparent);
+box-shadow: 0 0 10px rgba(244,114,182,0.4);
+opacity: 0.5;
+}
+/* ── SECTION ── */
+.section{ padding: 28px 16px 0; }
+.sec-label{
+display: flex; align-items: center; gap: 10px;
+margin-bottom: 14px;
+}
+.sec-label-dot{
+width: 8px; height: 8px; border-radius: 50%;
+background: var(--pink);
+box-shadow: 0 0 8px var(--pink), 0 0 20px rgba(244,114,182,0.4);
+flex-shrink: 0;
+}
+.sec-label-text{
+font-family: 'Mitr', sans-serif;
+font-size: 0.9rem;
+font-weight: 500;
+letter-spacing: 1.5px;
+color: var(--pink);
+text-shadow: 0 0 10px rgba(244,114,182,0.5);
+}
+/* ── CARD ── */
+.card{
+background: var(--card);
+border: 1px solid var(--border2);
+border-radius: var(--radius);
+padding: 20px;
+margin-bottom: 12px;
+position: relative;
+overflow: hidden;
+transition: border-color .3s, box-shadow .3s;
+box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+.card::after{
+content:'';
+position:absolute; top:0; left:20%; right:20%; height:1px;
+background: linear-gradient(90deg, transparent, rgba(244,114,182,0.3), transparent);
+}
+.card:hover{
+border-color: rgba(244,114,182,0.28);
+box-shadow: 0 4px 30px rgba(0,0,0,0.5), 0 0 20px rgba(244,114,182,0.03);
+}
+/* ── CARD HEADER ── */
+.card-head{
+font-family: 'Mitr', sans-serif;
+font-size: 1rem;
+font-weight: 500;
+color: var(--txt);
+margin-bottom: 14px;
+display: flex; align-items: center; gap: 8px;
+}
+.card-head-icon{
+width: 30px; height: 30px; border-radius: 8px;
+background: var(--pink-dim);
+border: 1px solid var(--border);
+display: flex; align-items: center; justify-content: center;
+font-size: 0.9rem; flex-shrink: 0;
+}
+/* ── WORK CHIPS ── */
+.work-chips{ display: flex; flex-direction: column; gap: 8px; }
+.work-chip{
+display: flex; align-items: center; gap: 12px;
+background: var(--card2);
+border: 1px solid var(--border2);
+border-radius: var(--radius-sm);
+padding: 12px 16px;
+font-size: 0.88rem; color: var(--txt);
+transition: all .3s;
+}
+.work-chip:hover{
+border-color: var(--border);
+background: var(--card3);
+transform: translateX(4px);
+}
+.chip-ico{
+width: 36px; height: 36px; border-radius: 10px;
+background: var(--pink-dim);
+border: 1px solid var(--border);
+display: flex; align-items: center; justify-content: center;
+font-size: 1.1rem; flex-shrink: 0;
+}
+/* ── PRICE HERO ── */
+.price-hero{
+background: #140e2b;
+border: 1px solid rgba(244,114,182,0.12);
+border-radius: var(--radius);
+padding: 22px 20px;
+margin-bottom: 12px;
+text-align: center;
+position: relative; overflow: hidden;
+}
+.price-hero-label{
+font-size: 0.78rem; color: var(--txt2);
+letter-spacing: 1.5px; text-transform: uppercase;
+font-family: 'Mitr', sans-serif;
+margin-bottom: 6px;
+}
+.price-hero-sub{
+font-size: 0.78rem; color: var(--txt2); margin-bottom: 10px;
+}
+.price-hero-amt{
+font-family: 'Mitr', sans-serif;
+font-size: 2.2rem; font-weight: 500;
+color: var(--pink);
+text-shadow: 0 0 20px rgba(244,114,182,0.6), 0 0 50px rgba(244,114,182,0.2);
+line-height: 1.3;
+margin-bottom: 4px;
+}
+.price-hero-unit{ font-size: 0.8rem; color: var(--txt2); }
+/* ── PRICE ROWS ── */
+.price-rows{ display: flex; flex-direction: column; gap: 0; }
+.price-row{
+display: flex; justify-content: space-between; align-items: center;
+padding: 11px 0;
+border-bottom: 1px solid var(--border2);
+font-size: 0.88rem;
+}
+.price-row:last-child{ border-bottom: none; }
+.price-row .label{ color: var(--txt2); }
+.price-row .val{
+font-family: 'Mitr', sans-serif;
+font-weight: 500; font-size: 0.95rem;
+color: var(--pink);
+text-shadow: 0 0 8px rgba(244,114,182,0.4);
+}
+/* ── PILL TAGS ── */
+.pill-row{ display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.pill{
+display: inline-flex; align-items: center; gap: 6px;
+padding: 7px 14px;
+border-radius: 30px;
+font-size: 0.82rem;
+border: 1px solid var(--border2);
+background: var(--card2);
+color: var(--txt2);
+white-space: nowrap;
+}
+.pill.pink{
+border-color: rgba(244,114,182,0.3);
+background: var(--pink-dim);
+color: var(--pink);
+}
+.pill.warn{
+border-color: rgba(168,85,247,0.4);
+background: rgba(139,92,246,0.15);
+color: #c4b5fd;
+}
+/* ── STEP LIST ── */
+.step-list{ display: flex; flex-direction: column; gap: 0; }
+.step-item{ display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border2); }
+.step-item:last-child{ border-bottom: none; }
+.step-num{
+width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+background: var(--pink2);
+box-shadow: 0 0 10px rgba(236,72,153,0.5);
+display: flex; align-items: center; justify-content: center;
+font-family: 'Mitr', sans-serif; font-size: 0.9rem; font-weight: 500; color: #fff;
+}
+.step-body{ font-size: 0.88rem; color: var(--txt); line-height: 1.65; padding-top: 5px; }
+.step-body strong{ color: var(--pink); font-weight: 500; }
+/* ── RULE ITEMS ── */
+.rule-list{ display: flex; flex-direction: column; gap: 0; }
+.rule-item{ display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border2); font-size: 0.88rem; line-height: 1.65; }
+.rule-item:last-child{ border-bottom: none; }
+.rule-dot{
+width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+background: var(--pink); margin-top: 8px;
+box-shadow: 0 0 6px rgba(244,114,182,0.6);
+}
+/* ── COURSE CARD ── */
+.course-card{
+background: #120c2b;
+border: 1px solid rgba(168,85,247,0.25);
+border-radius: var(--radius);
+padding: 22px 20px;
+margin-bottom: 12px;
+position: relative; overflow: hidden;
+box-shadow: 0 4px 30px rgba(0,0,0,0.5), 0 0 30px rgba(168,85,247,0.06);
+}
+.course-card::before{
+content:'';
+position:absolute; top:0; left:0; right:0; height:1px;
+background: linear-gradient(90deg, transparent, rgba(168,85,247,0.5), rgba(244,114,182,0.5), transparent);
+}
+.course-price-tag{
+display: flex; flex-direction: column; align-items: center; justify-content: center;
+width: 100%;
+background: linear-gradient(135deg, var(--pink2), var(--purple));
+border-radius: 20px;
+padding: 18px 32px;
+box-shadow: 0 6px 28px rgba(244,114,182,0.45), 0 0 40px rgba(168,85,247,0.2);
+margin-bottom: 14px;
+}
+.course-price-tag .cpt-amt{ font-family:'Mitr',sans-serif; font-size:1.6rem; font-weight:500; color:#fff; line-height:1.4; text-align: center; }
+.course-price-tag .cpt-lbl{ font-size:0.75rem; color:rgba(255,255,255,0.8); margin-top:2px; letter-spacing:1px; }
+/* ── COIN GRID ── */
+.coin-grid{ display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; margin-bottom: 12px; }
+.coin-box{
+background: var(--card2);
+border: 1px solid var(--border2);
+border-radius: var(--radius-sm);
+padding: 14px 10px; text-align: center;
+transition: all .3s;
+}
+.coin-box:hover{ border-color: var(--border); box-shadow: 0 0 12px rgba(244,114,182,0.12); transform: translateY(-2px); }
+.coin-box .ca{ font-size: 0.85rem; color: var(--txt2); margin-bottom: 4px; }
+.coin-box .cp{ font-family:'Mitr',sans-serif; font-size:1.2rem; font-weight:500; color:var(--pink); text-shadow: 0 0 8px rgba(244,114,182,0.4); }
+/* ── LINK BTN ── */
+.link-btn{
+display: inline-flex; align-items: center; gap: 8px;
+padding: 10px 18px;
+border: 1px solid var(--border);
+border-radius: 30px;
+color: var(--pink);
+text-decoration: none;
+font-size: 0.83rem; font-weight: 500;
+background: var(--pink-dim);
+transition: all .3s;
+margin: 3px;
+}
+.link-btn:hover{
+background: rgba(244,114,182,0.07);
+box-shadow: 0 0 14px rgba(244,114,182,0.25);
+transform: translateY(-1px);
+}
+/* ── NOTE BOX ── */
+.note-box{
+background: rgba(88,28,135,0.15);
+border: 1px solid rgba(168,85,247,0.2);
+border-left: 2px solid var(--pink);
+border-radius: 10px;
+padding: 12px 15px;
+font-size: 0.83rem; line-height: 1.75;
+color: var(--txt2);
+margin-top: 12px;
+}
+/* ── CONTACT GRID ── */
+.contact-grid{ display: flex; flex-direction: column; gap: 8px; }
+.contact-item{
+display: flex; align-items: center; gap: 14px;
+background: var(--card);
+border: 1px solid var(--border2);
+border-radius: var(--radius-sm);
+padding: 14px 16px;
+text-decoration: none;
+transition: all .3s;
+}
+.contact-item:hover{ border-color: var(--border); background: var(--card2); transform: translateX(3px); }
+.contact-icon{
+width: 38px; height: 38px; border-radius: 10px;
+background: var(--pink-dim); border: 1px solid var(--border);
+display: flex; align-items: center; justify-content: center;
+font-size: 1.1rem; flex-shrink: 0;
+}
+.contact-info .ci-label{ font-size: 0.72rem; color: var(--txt3); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+.contact-info .ci-val{ font-size: 0.85rem; color: var(--txt2); word-break: break-all; }
+/* ── STICKER ── */
+.sticker-chips{ display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+.sticker-chip{
+background: var(--card2); border: 1px solid var(--border2);
+border-radius: 8px; padding: 5px 12px;
+font-size: 0.82rem; color: var(--txt2);
+}
+/* ── HIGHLIGHT TEXT ── */
+.hl{ color: var(--pink); text-shadow: 0 0 8px rgba(244,114,182,0.4); }
+.hl2{ color: var(--pink); font-weight: 500; }
+.sub{ color: var(--txt3); font-size: 0.82rem; }
+/* ── DIVIDER ── */
+.dv{ height:1px; background: var(--border2); margin: 12px 0; }
+/* ── FOOTER ── */
+.footer{
+background: #090614;
+text-align: center;
+padding: 40px 24px 20px;
+color: var(--txt3);
+font-size: 0.8rem;
+letter-spacing: 1px;
+}
+.footer-name{
+font-family: 'Mitr', sans-serif;
+font-size: 1.2rem; font-weight: 500;
+color: var(--pink);
+text-shadow: 0 0 16px rgba(244,114,182,0.5), 0 0 40px rgba(244,114,182,0.2);
+margin-bottom: 6px;
+}
+.footer-line{
+height:1px; margin: 20px 0 16px;
+background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{ width: 4px; }
+::-webkit-scrollbar-track{ background: var(--bg); }
+::-webkit-scrollbar-thumb{ background: rgba(244,114,182,0.3); border-radius: 2px; }
+@media(min-width:520px){
+.coin-grid{ grid-template-columns: repeat(4,1fr); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+<div class="hero-badge">✦ welcome to angelic shop</div>
+<div class="hero-title">
+<span class="w1">An</span><span class="w2">ge</span><span class="w3">lic</span>
+</div>
+<p class="hero-sub">รับทำป้ายและทำเว็บครบวงจร ยินดีให้บริการค่ะ 🌸</p>
+<a href="https://www.facebook.com/share/17jexKrBnN/" target="_blank" class="hero-fb-btn">
+⭐ เครดิตร้าน คลิกเลยย 𓈒ׅ♡༷🪽
+</a>
+</div>
+<div class="g-divider"></div>
+
+<div class="section">
+<div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">🎨 งานที่รับทำ</div></div>
+<div class="work-chips">
+<div class="work-chip"><div class="chip-ico">🌐</div>เว็บครบวงจร</div>
+<div class="work-chip"><div class="chip-ico">🪧</div>ทำป้าย (เป็นตัวแทน)</div>
+<div class="work-chip"><div class="chip-ico">💧</div>ลายน้ำ (เป็นตัวแทน)</div>
+</div>
+<p class="sub" style="text-align:center;margin-top:10px">สอบถามรายละเอียดเพิ่มเติมทักแชทได้เลยค่ะ ✨</p>
+</div>
+
+<div class="section">
+<div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">⏱️ ระยะเวลารองาน</div></div>
+<div class="price-hero">
+<div class="price-hero-label">Queue & Status</div>
+<div class="price-hero-sub">ระยะเวลาการดำเนินงานตามปกติ</div>
+<div class="price-hero-amt" style="font-size: 1.3rem;">
+งานป้าย: 2-3 วัน<br>
+งานเว็บ: 1-2 อาทิตย์
+</div>
+<div class="price-hero-unit">𓈒ׅ♡༷🪽 p݂lu݁֯֯s 𓈒 ּo݂ne݁ f֯֯o݂r m݁e݂ 𐄙ּּ֯֯♡</div>
+</div>
+
+<div class="card">
+<div class="card-head"><div class="card-head-icon">⚡</div>กรณีงานเร่ง / ลัดคิว</div>
+<div class="price-rows">
+<div class="price-row"><span class="label">งานเร่งปกติ</span><span class="val">+15.-</span></div>
+<div class="price-row"><span class="label">งานเร่ง + ลัดคิว</span><span class="val">+30.-</span></div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-head"><div class="card-head-icon">✏️</div>ข้อตกลงสำคัญ</div>
+<div class="price-rows">
+<div class="price-row"><span class="label">การโอนเงิน</span><span class="val" style="color:#ef4444;">ไม่คืนเงินทุกกรณี</span></div>
+<div class="price-row"><span class="label">ยกเว้นกรณี</span><span class="val">ทางร้านเป็นฝ่ายผิด</span></div>
+<div class="price-row"><span class="label">การแก้ไขงาน</span><span class="val">ส่งงานแล้วแก้มีค่าใช้จ่าย</span></div>
+</div>
+<div class="note-box">⚠️ ข้อตกลงร้าน: เมื่อโอนเงินแล้วจะไม่สามารถคืนเงินได้ทุกกรณี ยกเว้นความผิดพลาดที่เกิดจากทางร้าน และหากส่งงานตรวจสอบเรียบร้อยแล้วต้องการแก้ไขในภายหลัง จะมีการคิดค่าบริการแก้ชิ้นงานนะคะ ✨</div>
+</div>
+</div>
+
+<div class="section">
+<div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">📋 ขั้นตอนการสั่งซื้อ</div></div>
+<div class="card">
+<div class="card-head"><div class="card-head-icon">🛒</div>Flow การสั่งงาน</div>
+<div class="pill-row">
+<div class="pill pink">✨ สั่งง่าย ได้งานไว</div>
+<div class="pill warn">⚡ งดก๊อปปี้สไตล์งานอื่น</div>
+</div>
+<p class="sub">*งดนำผลงานท่านอื่นมาให้ร้านทำตามทุกกรณี!</p>
+</div>
+
+<div class="card">
+<div class="card-head"><div class="card-head-icon">📝</div>ขั้นตอนการดำเนินงาน</div>
+<div class="step-list">
+<div class="step-item"><div class="step-num">1</div><div class="step-body"><strong>กรอกรายละเอียด</strong> เขียนข้อมูลร้านค้าที่ต้องการ</div></div>
+<div class="step-item"><div class="step-num">2</div><div class="step-body">แนบลิงก์ <strong>ตัวอย่างงาน</strong> ที่ชอบ พร้อมโลโก้ร้าน (ถ้ามี)</div></div>
+<div class="step-item"><div class="step-num">3</div><div class="step-body">ทางร้านส่งงานให้เช็ค · แจ้งยอด · <strong>ชำระเงิน</strong></div></div>
+<div class="step-item"><div class="step-num">4</div><div class="step-body"><strong>รอรับงาน</strong> สวย ๆ ได้เยยค่า ✨</div></div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">📍 กฎระเบียบร้าน Angelic</div></div>
+<div class="card">
+<div class="rule-list">
+<div class="rule-item"><div class="rule-dot"></div><div>ทางร้าน <span class="hl">งดรับงานก๊อปปี้</span> หรือทำตามแบบร้านอื่นทุกกรณีเด็ดขาด</div></div>
+<div class="rule-item"><div class="rule-dot"></div><div>การแก้ไขงานหลังจากส่งมอบลิงก์หรือไฟล์สำเร็จ จะมี <span class="hl">การคิดค่าบริการเพิ่ม</span> ตามจุดที่แก้</div></div>
+<div class="rule-item"><div class="rule-dot"></div><div>ยึดมั่นในข้อตกลงความพึงพอใจและการออกแบบที่เป็นเอกลักษณ์สไตล์ Angelic</div></div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">💻 บริการเสริม & ลิงก์ตรวจสอบคิว</div></div>
+<div class="course-card">
+<p style="font-size:0.9rem;color:var(--txt);line-height:1.8;margin-bottom:12px;text-align:center">
+ตรวจสอบคิวงาน สถานะการผลิต หรือแวะชม <span class="hl">เครดิตและรีวิว</span> จากลูกค้าท่านอื่น ๆ เพื่อความมั่นใจในการสั่งซื้อ 🌟
+</p>
+<div class="pill-row" style="justify-content:center">
+<div class="pill pink">🪽 ตรวจสอบได้ 24 ชม.</div>
+<div class="pill pink">💜 อัปเดตคิวเรียลไทม์</div>
+<div class="pill pink">✨ งานเสร็จตามกำหนด</div>
+</div>
+<div style="text-align:center;margin-top:18px">
+<div class="course-price-tag">
+<span class="cpt-amt">Angelic Shop</span>
+<span class="cpt-lbl">ยินดีให้บริการด้วยใจค่ะ</span>
+</div>
+</div>
+<div style="text-align:center;margin-top:14px">
+<a href="https://www.facebook.com/share/17jexKrBnN/" target="_blank" class="link-btn" style="border-style: dashed; border-width: 2px;">🔗 ปุ่มเช็คคิวงาน & เครดิตร้านค้า</a>
+</div>
+</div>
+
+<div class="card">
+<div class="card-head"><div class="card-head-icon">📓</div>รายละเอียดเพิ่มเติม</div>
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px">
+<p style="font-size:0.85rem;color:var(--txt2);">ยินดีต้อนรับเข้าสู่ครอบครัวของเรา</p>
+<div style="font-family:'Mitr',sans-serif;font-size:1.5rem;font-weight:500;color:rgba(250,200,50,0.95);text-shadow:0 0 14px rgba(200,150,0,0.5)">Angelic</div>
+</div>
+<div class="note-box">⚠️ สนใจสอบถามเรทราคางานแต่ละประเภทเพิ่มเติม สามารถทักแชทเข้ามาพูดคุยและประเมินราคาก่อนได้ฟรี แอดมินยินดีให้คำแนะนำตลอดค่ะ</div>
+</div>
+</div>
+
+<div class="section">
+<div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">👀 แคตตาล็อกและเรทราคา</div></div>
+<div class="card">
+<p class="sub" style="margin-bottom:12px">ตารางเปรียบเทียบและการประเมินขอบข่ายงานเบื้องต้น 🏖️</p>
+<div class="coin-grid">
+<div class="coin-box"><div class="ca">งานป้าย</div><div class="cp">ทักแชท</div></div>
+<div class="coin-box"><div class="ca">งานเว็บ</div><div class="cp">ประเมิน</div></div>
+<div class="coin-box"><div class="ca">งานเร่ง</div><div class="cp">+15 ฿</div></div>
+<div class="coin-box"><div class="ca">ลัดคิว</div><div class="cp">+30 ฿</div></div>
+</div>
+<div style="text-align:center"><a href="https://www.facebook.com/share/1WXLvo8EEn/" target="_blank" class="link-btn">🔗 ดูผลงานทั้งหมดบน FB</a></div>
+</div>
+</div>
+
+<div class="section">
+<div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">🎀 ความพึงพอใจของลูกค้า</div></div>
+<div class="card">
+<div class="sticker-chips">
+<div class="sticker-chip">✨ มั่นใจ ปลอดภัย</div>
+<div class="sticker-chip">🎵 ดีไซน์ตามบรีฟ</div>
+</div>
+<div class="coin-grid">
+<div class="coin-box"><div class="ca">งานป้าย</div><div class="cp">2-3 วัน</div></div>
+<div class="coin-box"><div class="ca">งานเว็บ</div><div class="cp">1-2 วีก</div></div>
+<div class="coin-box"><div class="ca">เร่งด่วน</div><div class="cp">เริ่ม 15.-</div></div>
+<div class="coin-box"><div class="ca">คุณภาพ</div><div class="cp">100%</div></div>
+</div>
+<div class="dv"></div>
+<div class="pill-row">
+<div class="pill">💬 ทักสอบถามคิวก่อนโอนเงิน</div>
+<div class="pill">📩 ยินดีให้คำปรึกษาฟรี</div>
+</div>
+<p style="font-size:0.85rem;color:var(--txt2)">ส่งบรีฟงาน → สรุปแบบ → ชำระเงิน → รอรับงานอาร์ตสวย ๆ ได้ทันทีค่ะ</p>
+</div>
+</div>
+
+<div class="section">
+<div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">📱 ช่องทางการติดต่อ</div></div>
+<div class="contact-grid">
+<a href="https://www.facebook.com/share/1WXLvo8EEn/" target="_blank" class="contact-item">
+<div class="contact-icon">📘</div>
+<div class="contact-info">
+<div class="ci-label">Facebook</div>
+<div class="ci-val">Angelic Shop (คลิกเพื่อทักแชท)</div>
+</div>
+</a>
+<a href="https://line.me/ti/p/d6PnSu6drh" target="_blank" class="contact-item">
+<div class="contact-icon">💚</div>
+<div class="contact-info">
+<div class="ci-label">Line</div>
+<div class="ci-val">คลิกแอดไลน์ที่นี่</div>
+</div>
+</a>
+</div>
+</div>
+
+<div class="footer">
+<div class="footer-line"></div>
+<div class="footer-name">✦ Angelic Shop ✦</div>
+<div>welcome to angelic shop · รับทำป้ายและทำเว็บครบวงจร · โทนม่วงชมพู</div>
+</div>
+</div>
+</body>
+</html>
